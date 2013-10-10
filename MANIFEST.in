@@ -1,1 +1,2 @@
 include LICENSE
+include jaro/strcmp95.c

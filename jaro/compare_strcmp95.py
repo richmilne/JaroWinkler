@@ -17,7 +17,20 @@ from jaro_tests import gen_test_args, jaro_tests
 # correct. We can then use the Python version as a reference while we
 # refactor the code.
 
-oracle_cmd = ['./a.out']
+base = os.path.dirname(os.path.abspath(__file__))
+basename = 'strcmp95'
+
+oracle_cmd = [os.path.join(base, basename)]
+
+if not os.path.isfile(oracle_cmd[0]):
+    assert os.path.isfile(oracle_cmd[0] + '.c')
+    print
+    print "Can't find compiled version of %s.c to test!" % basename
+    print 'Try executing:'
+    print 'gcc "%s/%s.c" -o "%s/%s"' % (base, basename, base, basename)
+    print
+    raise ImportError
+
 def run_oracle(string1, string2, flag_str):
     cmd = oracle_cmd + [string1, string2, flag_str]
     output = subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()[0]
