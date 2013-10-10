@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(
     name='jaro_winkler',
-    version='1.0',
+    version='1.0.2',
     description='Original, standard and customisable versions of the Jaro-Winkler functions.',
     author='Richard Milne',
     author_email='richmilne@hotmail.com',
@@ -12,7 +12,6 @@ setup(
     platforms=['any'],
     license='GNU General Public License v3 (GPLv3)',
     classifiers=[
-        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Operating System :: POSIX',
         'Programming Language :: Python :: 2',
