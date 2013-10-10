@@ -10,7 +10,9 @@ setup(
     url='https://github.com/richmilne/JaroWinkler.git',
     packages=['jaro'],
     platforms=['any'],
+    license='GNU General Public License v3 (GPLv3)',
     classifiers=[
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Operating System :: POSIX',
         'Programming Language :: Python :: 2',
