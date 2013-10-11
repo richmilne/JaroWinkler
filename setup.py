@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-from distutils.core import setup
+# from distutils.core import setup
+from setuptools import setup, find_packages
 
 setup(
     name='jaro_winkler',
@@ -9,6 +10,7 @@ setup(
     author_email='richmilne@hotmail.com',
     url='https://github.com/richmilne/JaroWinkler.git',
     packages=['jaro'],
+    include_package_data=True,
     platforms=['any'],
     license='GNU General Public License v3 (GPLv3)',
     classifiers=[
