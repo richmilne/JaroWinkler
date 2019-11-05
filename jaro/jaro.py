@@ -1,9 +1,9 @@
 #! /usr/bin/env python
 # coding: utf8
-from __future__ import division
+
 import os
 import sys
-from typo_tables import adjwt
+from .typo_tables import adjwt
 
 def fn_jaro(len1, len2, num_matches, half_transposes, typo_score, typo_scale):
     """Calculate the classic Jaro metric between two strings.
@@ -156,8 +156,8 @@ def string_metrics(s1, s2, typo_table=None, typo_scale=1, boost_threshold=None,
     """
     # Defaults are chosen to do least work necessary to get the valuesfor the
     # Jaro metric.
-    assert isinstance(s1, unicode)
-    assert isinstance(s2, unicode)
+    assert isinstance(s1, str)
+    assert isinstance(s2, str)
     assert typo_scale > 0
     assert boost_threshold is None or boost_threshold > 0
     assert pre_len >= 0
@@ -321,5 +321,5 @@ if __name__ == '__main__':
         sys.exit()
 
     s1, s2 = [s.decode('utf8') for s in sys.argv[1:3]]
-    print 'Jaro: %7.5f, Jaro-Winkler: %7.5f, Original: %7.5f.' % (
-      metric_jaro(s1, s2), metric_jaro_winkler(s1, s2), metric_original(s1, s2))
+    print('Jaro: %7.5f, Jaro-Winkler: %7.5f, Original: %7.5f.' % (
+      metric_jaro(s1, s2), metric_jaro_winkler(s1, s2), metric_original(s1, s2)))

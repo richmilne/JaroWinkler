@@ -126,7 +126,7 @@ def gen_test_args(test_tuples):
 jaro_tests = parse_tests(jaro_tests)
 
 def test():
-    import jaro
+    from . import jaro
 
     for test in jaro_tests:
         # s1, s2, m, t, jaro, wink = test
@@ -147,10 +147,10 @@ def test():
         check.extend(['%7.5f' % w for w in weights])
 
         if check != list(test[2:]):
-            print
-            print s1, s2
-            print check
-            print test[2:]
+            print()
+            print(s1, s2)
+            print(check)
+            print(test[2:])
             raise AssertionError
 
         strings = []
@@ -163,6 +163,6 @@ def test():
         for w in weights:
             strings.append(' %7.5f' % w)
 
-        print ' '.join(strings)
+        print(' '.join(strings))
 
 if __name__ == '__main__': test()
