@@ -1,6 +1,6 @@
-import compare_strcmp95
-import compare_jaro
-import jaro_tests
+from . import compare_strcmp95
+from . import compare_jaro
+from . import jaro_tests
 
 compare_strcmp95.test()
 compare_jaro.test()

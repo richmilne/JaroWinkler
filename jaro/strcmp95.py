@@ -30,10 +30,10 @@ sp_table = \
   ]
 
 adjwt = []
-for i in xrange(91):
+for i in range(91):
     adjwt.append([0]*91)
 
-for i in xrange(len(sp_table) // 2):
+for i in range(len(sp_table) // 2):
     i0 = sp_table[i*2]
     i1 = sp_table[i*2+1]
     # print "indices sp[%d][0]=%s, sp[%d][1]=%s" % (i, i0, i, i1)
@@ -65,8 +65,8 @@ def print_adjwt_table():
         chars.append(''.join(line))
     row_chars, col_chars = chars
 
-    print '  ' + col_chars
-    print ' +' + '-'*len(col_chars) + '+'
+    print('  ' + col_chars)
+    print(' +' + '-'*len(col_chars) + '+')
     for i, index in enumerate(rows):
         row = adjwt[index]
         row = [row[j] for j in cols]
@@ -75,9 +75,9 @@ def print_adjwt_table():
             char = 'X' if el else '.'
             line.append(char)
         line.extend(['|', row_chars[i]])
-        print ''.join(line)
-    print ' +' + '-'*len(col_chars) + '+'
-    print '  ' + col_chars
+        print(''.join(line))
+    print(' +' + '-'*len(col_chars) + '+')
+    print('  ' + col_chars)
 
 default_ret = 0, 0, 0, 0, 0, 0, False, 0.0, 0.0, 0.0, 0.0, 0.0
 
@@ -87,10 +87,10 @@ def strcmp95(ying, yang, larger_tol=False, to_upper=False, debug=True):
     yang_len = len2 = len(yang)
     y_length = max(ying_len, yang_len)
     if debug:
-        print "ying: '%s' (len %d)" % (ying, ying_len)
-        print "yang: '%s' (len %d)" % (yang, yang_len)
-        print "length:", y_length
-        print "flags:", int(not(larger_tol)), int(not(to_upper))
+        print("ying: '%s' (len %d)" % (ying, ying_len))
+        print("yang: '%s' (len %d)" % (yang, yang_len))
+        print("length:", y_length)
+        print("flags:", int(not(larger_tol)), int(not(to_upper)))
         # We have to invert flags because original C code used them to signal
         # that some functionality should be turned off. We use it to activate
         # some functionality.
@@ -120,9 +120,9 @@ def strcmp95(ying, yang, larger_tol=False, to_upper=False, debug=True):
     ying_hold = ying[yi_st:i+1]
 
     if debug:
-        print
-        print "ying start: %d" % yi_st
-        print "ying length: %d" % ying_length
+        print()
+        print("ying start: %d" % yi_st)
+        print("ying length: %d" % ying_length)
 
     i, j = k, 0
     while yang[j]==' ' and j < k: j += 1
@@ -131,8 +131,8 @@ def strcmp95(ying, yang, larger_tol=False, to_upper=False, debug=True):
     yang_hold = yang[j:i+1]
 
     if debug:
-        print "yang start: %d" % j
-        print "yang length: %ld" % yang_length
+        print("yang start: %d" % j)
+        print("yang length: %ld" % yang_length)
 
     if ying_length > yang_length:
         search_range = ying_length
@@ -144,8 +144,8 @@ def strcmp95(ying, yang, larger_tol=False, to_upper=False, debug=True):
     search_range = (search_range // 2) - 1
     if search_range < 0: search_range = 0
     if debug:
-        print "Search range: %d" % search_range
-        print "Minv: %d" % minv
+        print("Search range: %d" % search_range)
+        print("Minv: %d" % minv)
 
     ying_flag = [' '] * old_search
     yang_flag = [' '] * old_search
@@ -155,27 +155,27 @@ def strcmp95(ying, yang, larger_tol=False, to_upper=False, debug=True):
         ying_hold = ying_hold.upper()
         yang_hold = yang_hold.upper()
     if debug:
-        print "ying hold: '%s'" % ying_hold
-        print "yang hold: '%s'" % yang_hold
-        print
+        print("ying hold: '%s'" % ying_hold)
+        print("yang hold: '%s'" % yang_hold)
+        print()
     # Looking only within the search range, count and flag the matched pairs.
     Num_com = 0
     yl1 = yang_length - 1
-    for i in xrange(ying_length):
+    for i in range(ying_length):
         lowlim = max(i - search_range, 0)
         hilim  = min(i + search_range, yl1)
-        if debug: print "%d. Looking for char %c in range [%ld, %ld (incl)]" % (i, ying_hold[i],lowlim, hilim)
+        if debug: print("%d. Looking for char %c in range [%ld, %ld (incl)]" % (i, ying_hold[i],lowlim, hilim))
         for j in range(lowlim, hilim+1):
-            if debug: print "   j:%2d   char: %c" % (j, yang_hold[j])
+            if debug: print("   j:%2d   char: %c" % (j, yang_hold[j]))
             if yang_flag[j] != '1' and yang_hold[j] == ying_hold[i]:
                 yang_flag[j] = '1'
                 ying_flag[i] = '1'
                 Num_com += 1
                 break
     if debug:
-        print 'Num com:', Num_com;
-        print "ying flag: '%s'" % ''.join(ying_flag)
-        print "yang flag: '%s'" % ''.join(yang_flag)
+        print('Num com:', Num_com);
+        print("ying flag: '%s'" % ''.join(ying_flag))
+        print("yang flag: '%s'" % ''.join(yang_flag))
 
     # If no characters in common - return
     if not Num_com:
@@ -185,15 +185,15 @@ def strcmp95(ying, yang, larger_tol=False, to_upper=False, debug=True):
 
     # Count the number of transpositions
     k = N_trans = 0
-    for i in xrange(ying_length):
+    for i in range(ying_length):
         if ying_flag[i]=='1':
-            for j in xrange(k, yang_length):
+            for j in range(k, yang_length):
                 if yang_flag[j]=='1':
                     k = j + 1
                     break
             if ying_hold[i] != yang_hold[j]:
                 N_trans += 1
-    if debug: print 'Transpositions:', N_trans
+    if debug: print('Transpositions:', N_trans)
     half_transposes = N_trans
     N_trans //= 2
 
@@ -203,15 +203,15 @@ def strcmp95(ying, yang, larger_tol=False, to_upper=False, debug=True):
              + (Num_com - N_trans) / (Num_com*1.0)
     weight /= 3.0
     weight_jaro = weight
-    if debug: print "First weight: %.6f" % weight
+    if debug: print("First weight: %.6f" % weight)
 
     # adjust for similarities in nonmatched characters
     N_simi = 0
     if minv > Num_com:
-        for i in xrange(ying_length):
+        for i in range(ying_length):
             row = ord(ying_hold[i])
             if ying_flag[i]==' ' and INRANGE(row):
-                for j in xrange(yang_length):
+                for j in range(yang_length):
                     col = ord(yang_hold[j])
                     if yang_flag[j]==' ' and INRANGE(col):
                         weight = adjwt[row][col]
@@ -222,10 +222,10 @@ def strcmp95(ying, yang, larger_tol=False, to_upper=False, debug=True):
     typo_score = N_simi
     Num_sim = N_simi / 10.0 + Num_com
     if debug:
-        print 'N_simi :', N_simi
-        print 'Num sim: %.6f' % Num_sim
-        print "ying flag: '%s'" % ''.join(ying_flag)
-        print "yang flag: '%s'" % ''.join(yang_flag)
+        print('N_simi :', N_simi)
+        print('Num sim: %.6f' % Num_sim)
+        print("ying flag: '%s'" % ''.join(ying_flag))
+        print("yang flag: '%s'" % ''.join(yang_flag))
 
     # Main weight computation.
     weight =   Num_sim / (ying_length*1.0) \
@@ -233,7 +233,7 @@ def strcmp95(ying, yang, larger_tol=False, to_upper=False, debug=True):
              + (Num_com - N_trans) / (Num_com*1.0)
     weight /= 3.0
     weight_typo = weight
-    if debug: print "Weight: %.6f" % weight
+    if debug: print("Weight: %.6f" % weight)
 
     weight_winkler = weight_jaro
     weight_winkler_typo = weight_longer = weight_typo
@@ -246,16 +246,16 @@ def strcmp95(ying, yang, larger_tol=False, to_upper=False, debug=True):
         j = min(minv, 4)
         i = 0
         while i<j and ying_hold[i]==yang_hold[i] and NOTNUM(ord(ying_hold[i])):
-            if debug: print "pre-match: %d" % i
+            if debug: print("pre-match: %d" % i)
             i += 1
         # if yang_length: assert i >= 1
         if i:
-            if debug: print "final pre-match: %d" % i
+            if debug: print("final pre-match: %d" % i)
             pre_matches = i
             weight += (i * 0.1 * (1.0 - weight))
             weight_winkler_typo = weight_longer = weight
             weight_winkler = weight_jaro + (i * 0.1 * (1.0 - weight_jaro))
-        if debug: print "Adjusted weight: %.6f" % weight
+        if debug: print("Adjusted weight: %.6f" % weight)
 
         # Optionally adjust for long strings.
         # After agreeing beginning chars, at least two more must agree and
@@ -266,7 +266,7 @@ def strcmp95(ying, yang, larger_tol=False, to_upper=False, debug=True):
                 t = (1.0 * Num_com-i-1) / (ying_length + yang_length - i*2+2)
                 weight += (1 - weight) * t
                 weight_longer = weight
-                if debug: print "Re-adjusted weight: %.6f" % weight
+                if debug: print("Re-adjusted weight: %.6f" % weight)
 
     return (len1, len2, num_matches, half_transposes,
                 typo_score, pre_matches, adjust_long,

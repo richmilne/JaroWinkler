@@ -53,8 +53,7 @@ def create_typo_table(typo_chars, score=3):
     """
     typo_table = {}
 
-    typo_chars = [s.decode('utf8') for s in typo_chars]
-    for i in xrange(len(typo_chars) // 2):
+    for i in range(len(typo_chars) // 2):
         row_char = typo_chars[i*2]
         col_char = typo_chars[i*2+1]
         # Create the symmetric mappings from row_char to col_char,
@@ -65,7 +64,7 @@ def create_typo_table(typo_chars, score=3):
             except KeyError:
                 typo_table[row] = row_dict = {}
             if col in row_dict:
-                msg = u"Redundant entry (%s) in typo_chars." % col
+                msg = "Redundant entry (%s) in typo_chars." % col
                 raise ValueError(msg)
 
             row_dict[col] = score
@@ -73,22 +72,22 @@ def create_typo_table(typo_chars, score=3):
     return typo_table
 
 def print_typo_table(typo_table):
-    row_chars = typo_table.keys()
+    row_chars = list(typo_table.keys())
     col_chars = set([])
     # The table should be symmetrical, and so row_chars should equal col_chars,
     # but we'll leave the option for asymmetry open.
     for row in row_chars:
-        cols = typo_table[row].keys()
+        cols = list(typo_table[row].keys())
         col_chars.update(cols)
 
     chars = []
     for indices in [row_chars, col_chars]:
         line = [i for i in sorted(indices)]
-        chars.append(u''.join(line))
+        chars.append(''.join(line))
     row_chars, col_chars = chars
 
-    print '  ' + col_chars
-    print ' +' + '-'*len(col_chars) + '+'
+    print('  ' + col_chars)
+    print(' +' + '-'*len(col_chars) + '+')
     for row in row_chars:
         line = [row, '|']
         row_dict = typo_table[row]
@@ -101,9 +100,9 @@ def print_typo_table(typo_table):
                 char = '.'
             line.append(char)
         line.extend(['|', row])
-        print ''.join(line)
-    print ' +' + '-'*len(col_chars) + '+'
-    print '  ' + col_chars
+        print(''.join(line))
+    print(' +' + '-'*len(col_chars) + '+')
+    print('  ' + col_chars)
 
 adjwt = create_typo_table(__sp_table)
 

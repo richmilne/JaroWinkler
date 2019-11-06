@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='jaro_winkler',
-    version='1.0.2',
+    version='2.0.0',
     description='Original, standard and customisable versions of the Jaro-Winkler functions.',
     author='Richard Milne',
     author_email='richmilne@hotmail.com',

@@ -32,8 +32,8 @@ which links to the the Java LingPipe documentation
 
 which expands on Wikipedia's explanation and provided the base of this
 module's tests."""
-import jaro
-import typo_tables
+from . import jaro
+from . import typo_tables
 
 def jaro_metric(string1, string2):
     return jaro.metric_jaro(string1, string2)

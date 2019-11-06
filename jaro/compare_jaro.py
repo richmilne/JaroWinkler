@@ -1,11 +1,11 @@
 import os
 import sys
-import jaro
-import strcmp95
+from . import jaro
+from . import strcmp95
 
-from typo_tables import adjwt
-from jaro_tests import gen_test_args, jaro_tests
-from jaro import fn_jaro, fn_winkler, fn_longer, string_metrics
+from .typo_tables import adjwt
+from .jaro_tests import gen_test_args, jaro_tests
+from .jaro import fn_jaro, fn_winkler, fn_longer, string_metrics
 
 def all_metrics(string1, string2, longer_prob):
 
@@ -54,11 +54,11 @@ def compare(string1, string2, larger_tol):
 
     # print ('-->', s1, s2, larger_tol, rearrange, check)
     if not check:
-        print rearrange
+        print(rearrange)
         for a1, a2 in zip(ans1, ans2):
-            print str(a1==a2).ljust(5), a1, a2
-        print ans1
-        print ans2
+            print(str(a1==a2).ljust(5), a1, a2)
+        print(ans1)
+        print(ans2)
     assert check
 
     (weight_jaro, weight_typo, weight_winkler,
