@@ -1,6 +1,8 @@
 JaroWinkler
 ===========
 
+[![PyPI version](https://badge.fury.io/py/jaro_winkler.svg)](https://badge.fury.io/py/jaro_winkler)
+
 Original, standard and customisable versions of the Jaro-Winkler functions.
 
 <pre>
