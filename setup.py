@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='jaro_winkler',
-    version='2.0.0',
+    version='1.9.0',
     description='Original, standard and customisable versions of the Jaro-Winkler functions.',
     author='Richard Milne',
     author_email='richmilne@hotmail.com',
@@ -16,10 +16,9 @@ setup(
     classifiers=[
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Operating System :: POSIX',
-        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
         'Topic :: Text Processing',
         'Topic :: Text Processing :: General',
         'Topic :: Text Processing :: Indexing',
     ],
-     )
-
+)

@@ -77,4 +77,5 @@ def test():
     for larger_tol, to_upper, s1, s2 in gen_test_args(jaro_tests):
         compare(s1, s2, larger_tol)
 
-if __name__ == '__main__': test()
+if __name__ == '__main__':
+    test()

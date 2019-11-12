@@ -147,9 +147,9 @@ def count_typos(s1, s2, flags1, flags2, typo_table):
     return typo_score, flags2
 
 def string_metrics(s1, s2, typo_table=None, typo_scale=1, boost_threshold=None,
-                                     pre_len=0, pre_scale=0, longer_prob=False):
+                   pre_len=0, pre_scale=0, longer_prob=False):
     """
-    Calculate the string parameters and flags required by the various Jaro Winkler routines.
+    Calculate the string params and flags required by Jaro Winkler routines.
 
     For more detail of what the various arguments to this function mean and
     do, see the metric_custom() function.
@@ -320,6 +320,7 @@ if __name__ == '__main__':
     if len(sys.argv) < 3:
         sys.exit()
 
-    s1, s2 = [s.decode('utf8') for s in sys.argv[1:3]]
+    # s1, s2 = [s.decode('utf8') for s in sys.argv[1:3]]
+    s1, s2 = sys.argv[1:3]
     print('Jaro: %7.5f, Jaro-Winkler: %7.5f, Original: %7.5f.' % (
       metric_jaro(s1, s2), metric_jaro_winkler(s1, s2), metric_original(s1, s2)))

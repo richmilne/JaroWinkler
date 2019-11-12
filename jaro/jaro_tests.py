@@ -72,6 +72,9 @@ ABCD         -             0  0  0.00000  0.00000  0.00000
 --           -             0  0  0.00000  0.00000  0.00000
 --           ---           1  0  0.83333  0.83333  0.83333
 """
+# We use hyphens to encode null strings and spaces.
+# A sequence of n hyphens represents a string of (n-1) spaces.
+
 # http://richardminerich.com/tag/jaro-winkler/
 # http://richardminerich.com/2011/09/record-linkage-algorithms-in-f-jaro-winkler-distance-part-1/
 
@@ -100,7 +103,7 @@ def parse_tests(rstring):
             if string[0] == '-':
                 assert set(string) == set(['-'])
                 string = ' ' * (len(string)-1)
-            string = string.decode('utf8')
+            # string = string.decode('utf8')
             strings.append(string)
         s1, s2 = strings
 
@@ -108,6 +111,10 @@ def parse_tests(rstring):
         tests.append((s1, s2, m, t, jaro, wink, orig))
 
     return tests
+
+
+jaro_tests = parse_tests(jaro_tests)
+
 
 def gen_test_args(test_tuples):
 
@@ -123,7 +130,6 @@ def gen_test_args(test_tuples):
                     for s2 in strings2:
                         yield larger_tol, to_upper, s1, s2
 
-jaro_tests = parse_tests(jaro_tests)
 
 def test():
     from . import jaro
@@ -165,4 +171,5 @@ def test():
 
         print(' '.join(strings))
 
-if __name__ == '__main__': test()
+if __name__ == '__main__':
+    test()
