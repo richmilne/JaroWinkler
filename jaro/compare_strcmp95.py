@@ -125,7 +125,7 @@ def test():
             # investigate further and see what's wrong with the others - looks
             # like a mismatch between the flag inversions and what the C and
             # the Python code expect
-            continue
+            # continue
             pass
 
         if 1:
