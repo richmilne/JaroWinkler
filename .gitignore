@@ -22,6 +22,10 @@ lib
 lib64
 __pycache__
 
+# Virtual environments
+venv
+activ8
+
 # Installer logs
 pip-log.txt
 
