@@ -1,6 +1,8 @@
 JaroWinkler
 ===========
 
+[![PyPI version](https://badge.fury.io/py/jaro-winkler.svg)](https://badge.fury.io/py/jaro-winkler)
+
 Original, standard and customisable versions of the Jaro-Winkler functions.
 
 <pre>
@@ -12,7 +14,7 @@ Original, standard and customisable versions of the Jaro-Winkler functions.
 Help on package jaro:
 
 <strong>NAME</strong>
-    jaro - Python translation of the original Jaro-Winkler functions.`
+    jaro - Python translation of the original Jaro-Winkler functions.
 
 <strong>DESCRIPTION</strong>
     The Jaro-Winkler functions compare two strings and return a score indicating
