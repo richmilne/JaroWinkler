@@ -54,7 +54,7 @@ def custom_metric(string1, string2, typo_table, typo_scale,
 setattr(custom_metric, '__doc__', jaro.metric_custom.__doc__)
 
 def create_typo_table(typo_chars, score=3):
-    return typo_tables.create_type_table(typo_chars, score)
+    return typo_tables.create_typo_table(typo_chars, score)
 setattr(create_typo_table, '__doc__', typo_tables.create_typo_table.__doc__)
 
 """

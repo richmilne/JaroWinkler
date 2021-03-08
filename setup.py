@@ -12,7 +12,7 @@ README = (HERE / 'README.md').read_text()
 
 setup(
     name='jaro_winkler',
-    version='2.0.0',
+    version='2.0.1',
     description='Original, standard and customisable versions of the Jaro-Winkler functions.',
     long_description=README,
     long_description_content_type='text/markdown',
