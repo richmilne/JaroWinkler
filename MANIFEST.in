@@ -1,3 +1,8 @@
-include LICENSE
-include README.md
+# LICENSE and README files don't need to be mentioned - 
+# setup picks them up automatically
+# include LICENSE
+# include README.md
+
+# All other files/dirs are assumed to be relative to root of project dir
+# (which is the dir containing the setup.py file)
 include jaro/strcmp95.c
