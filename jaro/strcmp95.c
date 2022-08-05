@@ -29,14 +29,14 @@
 
 #include <ctype.h>
 #include <string.h>
-# include <stdio.h>
+#include <stdio.h>
 
 #define NOTNUM(c)	((c>57) || (c<48))
 #define INRANGE(c)      ((c>0)  && (c<91))
 #define MAX_VAR_SIZE 61
 #define NULL60 "                                                            "
 
-double  strcmp95(char *ying, char *yang, long y_length, int *ind_c[])
+double  strcmp95(char *ying, char *yang, long y_length, int ind_c[])
 
 {
 /* Arguments:
@@ -258,7 +258,7 @@ int main(int argc, char* argv[]) {
     double weight;
 
     int flags[2];
-    char* flag_str;
+    char *flag_str;
 
     /*for (i=0; i<argc; i++) {
         printf("Arg %d: '%s'\n", i, argv[i]);
@@ -300,5 +300,5 @@ int main(int argc, char* argv[]) {
     // printf("ying_hold: '%s'\n", ying_hold);
     // printf("yang_hold: '%s'\n", yang_hold);
 
-    strcmp95(ying_hold, yang_hold, length, &flags);
+    strcmp95(ying_hold, yang_hold, length, flags);
 }
