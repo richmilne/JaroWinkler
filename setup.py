@@ -12,15 +12,15 @@ README = (HERE / 'README.md').read_text()
 
 setup(
     name='jaro_winkler',
-    version='2.0.1',
+    version='2.0.3',
     description='Original, standard and customisable versions of the Jaro-Winkler functions.',
     long_description=README,
-    long_description_content_type='text/markdown',
+    long_description_content_type='text/markdown',  # Needed by PyPI, which expects reStructuredText by default.
     author='Richard Milne',
     author_email='richmilne@hotmail.com',
     url='https://github.com/richmilne/JaroWinkler.git',
-    packages=['jaro'],
-    include_package_data=True,
+    packages=find_packages(),
+    include_package_data=True,   # Include files given in MANIFEST.in
     platforms=['any'],
     license='GNU General Public License v3 (GPLv3)',
     classifiers=[
